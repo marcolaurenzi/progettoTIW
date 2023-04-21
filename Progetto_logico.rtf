@@ -9,7 +9,7 @@
 Utente (\ul username,\ulnone  indirizzo)\
 Offerta (\ul data\ulnone , \ul ora\ulnone , \ul username\ulnone , \ul codice\ulnone , prezzo, aggiudicata)\
 Asta (\ul codice\ulnone , \ul username\ulnone , scadenza_ora, scadenza_data, rialzo_minimo, prezzo_iniziale)\
-Articolo (\ul codice\ulnone , nome, prezzo, immagine, descrizione, disponibilit\'e0)\
+Articolo (\ul codice\ulnone , \ul username\ulnone , nome, prezzo, immagine, descrizione, disponibilit\'e0)\
 Contiene (\ul codice_asta\ulnone , \ul codice_articolo\ulnone )\ul \
 \
 \ulnone References: \
@@ -17,4 +17,5 @@ Offerta.username ->  Utente.username\
 Asta.username -> Utente.username\
 Contiene.codice_asta -> Asta.codice\
 Contiene.codice_articolo -> Articolo.codice\
+Articolo.username -> Utente.username\
 }
