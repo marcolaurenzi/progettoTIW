@@ -1,4 +1,6 @@
 window.onload = function() {
+
+    // at the beginning, buying auctions and a link to switch page is displayed
     var sellingLink = document.getElementById("sellingLink");
     sellingLink.className = "displayed";
     var buyingLink = document.getElementById("buyingLink");
@@ -11,6 +13,44 @@ window.onload = function() {
     auctionDetails.className = "masked";
     var biddingPage = document.getElementById("biddingPage");
     biddingPage.className = "masked";
+
+    // add event listener to the bidding form
+    document.getElementById("biddingForm").addEventListener("submit",
+        function(e) {
+          e.preventDefault();
+          var bidTableBody = document.getElementById("bidTableBody");
+          var bids = bidTableBody.querySelectorAll(".amount");
+          var bidAmount = this.bidAmount.value;
+
+          // calculates the max bid
+          var maxBid = Math.max.apply(null, Array.from(bids).map(function(element) {
+            return parseFloat(element.textContent);
+          }));
+          if (bidAmount <= maxBid) {
+            this.reset();
+            alert("Error: bid must be > " + maxBid);
+          } else {
+            var currentDate = new Date().toISOString().slice(0, 10);
+            var newRow = document.createElement("tr");
+
+            // creates the date cell
+            var dateCell = document.createElement("td");
+            dateCell.textContent = currentDate;
+            newRow.appendChild(dateCell);
+
+            // create a new cell for the amount and sets the className to "amount"
+            var amountCell = document.createElement("td");
+            amountCell.className = "amount";
+            amountCell.textContent = bidAmount;
+            newRow.appendChild(amountCell);
+
+            // appends the new row to the table body
+            bidTableBody.appendChild(newRow);
+
+            this.reset();
+          }
+        }, false);
+    };
 
     sellingLink.onclick = function() {
         var element1 = document.getElementById("buyingAuctions");
@@ -73,4 +113,3 @@ window.onload = function() {
                 auctionIdMessage.appendChild(document.createTextNode("Auction ID: " + buyingAuctions[i].textContent));
             }, false);
     }
-};

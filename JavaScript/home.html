@@ -162,7 +162,7 @@
             </table>
 
             <h1>Bids</h1>
-            <table>
+            <table id = "bidTable">
                 <thead>
                     <tr>
                         <th>
@@ -173,12 +173,12 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id = "bidTableBody">
                     <tr>
                         <td>
                             2020-01-01
                         </td>    
-                        <td>
+                        <td class = "amount">
                             100
                         </td>
                     </tr>
@@ -186,16 +186,16 @@
                         <td>
                             2022-01-01
                         </td>    
-                        <td>
+                        <td class = "amount">
                             200
                         </td>
                     </tr>
                 </tbody>
             </table>
-
-            <form>
+            <h1>make your bid</h1>
+            <form id="biddingForm">
                 <label for="bidAmount">Bid Amount:</label>
-                <input type="number" id="bidAmount" name="bidAmount"><br><br>
+                <input type="number" id="bidAmount" name="bidAmount" value ="bidAmount"><br><br>
                 <input type="submit" value="Bid">
             </form>
         </div>
