@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" media="all" href="home.css" />
+        <script src="home.js" defer></script>
+    </head>
+    <body>
+        <div id="buyingLink">
+            Go to buying Page
+        </div>
+        <div id="sellingLink">
+            Go to selling Page
+        </div>
+        <br>
+
+        <div>
+            <table id="buyingAuctions">
+                <thead>
+                    <tr>
+                        <th>
+                            Auction ID
+                        </th>    
+                        <th>
+                            Current Bid
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="buyingAuctionsBody">
+                    <tr>
+                        <td class="id">
+                            0
+                        </td>    
+                        <td>
+                            100
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class = "id">
+                            1
+                        </td>    
+                        <td>
+                            200
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <table id="sellingAuctions">
+                <thead>
+                    <tr>
+                        <th>
+                            Auction ID
+                        </th>    
+                        <th>
+                            Current Bid
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="sellingAuctionsBody">
+                    <tr>
+                        <td class="id">
+                            3
+                        </td>    
+                        <td>
+                            100
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class = "id">
+                            4
+                        </td>    
+                        <td>
+                            200
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="auctionDetails">
+            <p id="auctionIdMessage">
+                Auction ID:
+            </p>
+            <p>
+                Current Bid: 100
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Element ID
+                        </th>    
+                        <th>
+                            Element Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            0
+                        </td>    
+                        <td>
+                            Computer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>    
+                        <td>
+                            Mouse
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="biddingPage">
+            <p id="auctionIdMessage">
+                Auction ID:
+            </p>
+            <p>
+                Current Bid: 100
+            </p>
+
+            <h1>Items</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Element ID
+                        </th>    
+                        <th>
+                            Element Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            0
+                        </td>    
+                        <td>
+                            Computer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>    
+                        <td>
+                            Mouse
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h1>Bids</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Date
+                        </th>    
+                        <th>
+                            Amount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            2020-01-01
+                        </td>    
+                        <td>
+                            100
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2022-01-01
+                        </td>    
+                        <td>
+                            200
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form>
+                <label for="bidAmount">Bid Amount:</label>
+                <input type="number" id="bidAmount" name="bidAmount"><br><br>
+                <input type="submit" value="Bid">
+            </form>
+        </div>
+    </body>
+</html>
