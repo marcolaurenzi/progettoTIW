@@ -4,16 +4,11 @@
 .displayed {
     display: block;
 }
-#buyingAuctions {
-    border-collapse: collapse;
-    width: 100%; /* Adjust the width as desired */
-}
-#buyingAuctions th,
-#buyingAuctions td {
-    border: 1px solid black; /* Adjust the border style as desired */
-    padding: 8px; /* Adjust the padding as desired */
-}
 
 #buyingLink, #sellingLink {
     color : red;
+}
+
+#anchorRow {
+    height: 25px;
 }
