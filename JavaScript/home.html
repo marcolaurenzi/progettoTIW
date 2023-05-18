@@ -15,7 +15,7 @@
         </div>
         <br>
 
-        <div>
+        <div id="buyingPage">
             <table id="buyingAuctions">
                 <thead>
                     <tr>
@@ -48,7 +48,7 @@
             </table>
         </div>
 
-        <div>
+        <div id="sellingPage">
             <table id="sellingAuctions">
                 <thead>
                     <tr>
@@ -79,6 +79,53 @@
                     </tr>
                 </tbody>
             </table>
+            <h1>Create item</h1>
+            <form id="itemForm">
+                Name: <input type="text" id="itemName" name="itemName"><br><br>
+                Price: <input type="number" id="itemPrice" name="itemPrice"><br><br>
+                Description: <input type="text" id="itemDescription" name="itemDescription"><br><br>
+                <input type="submit" value="Create">
+            </form>
+            <table id="items">
+                <thead>
+                    <tr> 
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="itemsBody">
+                    <tr>
+                        <td class="name">
+                            Computer
+                        </td>    
+                        <td>
+                            100
+                        </td>
+                        <td class="description">
+                            This is a computer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name">
+                            Mouse
+                        </td>
+                        <td>
+                            200
+                        </td>
+                        <td class="description">
+                            This is a mouse
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <div id="auctionDetails">
@@ -93,10 +140,13 @@
                 <thead>
                     <tr>
                         <th>
-                            Element ID
+                            Item ID
                         </th>    
                         <th>
-                            Element Name
+                            Item Name
+                        </th>
+                        <th>
+                            Item description
                         </th>
                     </tr>
                 </thead>
@@ -105,16 +155,22 @@
                         <td>
                             0
                         </td>    
-                        <td>
+                        <td class = "searchable">
                             Computer
+                        </td>
+                        <td class = "searchable">
+                            This is a computer
                         </td>
                     </tr>
                     <tr>
                         <td>
                             1
                         </td>    
-                        <td>
+                        <td class = "searchable">
                             Mouse
+                        </td>
+                        <td class = "searchable">
+                            This is a mouse
                         </td>
                     </tr>
                 </tbody>
@@ -197,6 +253,12 @@
                 <label for="bidAmount">Bid Amount:</label>
                 <input type="number" id="bidAmount" name="bidAmount" value ="bidAmount"><br><br>
                 <input type="submit" value="Bid">
+            </form>
+            <h1>Search auctions</h1>
+            <form id="searchingForm">
+                <label for="keyWord">Key Word:</label>
+                <input type="text" id="keyWord" name="keyWord" value ="keyWord"><br><br>
+                <input type="submit" value="Search">
             </form>
         </div>
     </body>

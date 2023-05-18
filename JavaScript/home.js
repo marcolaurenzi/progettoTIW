@@ -5,9 +5,9 @@ window.onload = function() {
     sellingLink.className = "displayed";
     var buyingLink = document.getElementById("buyingLink");
     buyingLink.className = "masked";
-    var sellingAuctions = document.getElementById("sellingAuctions");
+    var sellingAuctions = document.getElementById("sellingPage");
     sellingAuctions.className = "masked";
-    var buyingAuctions = document.getElementById("buyingAuctions");
+    var buyingAuctions = document.getElementById("buyingPage");
     buyingAuctions.className = "displayed";
     var auctionDetails = document.getElementById("auctionDetails");
     auctionDetails.className = "masked";
@@ -50,12 +50,20 @@ window.onload = function() {
             this.reset();
           }
         }, false);
+    document.getElementById("searchingForm").addEventListener("submit",
+        function(e) {
+          e.preventDefault();
+          var keyWord = this.keyWord.value;
+          alert("Searching for: " + keyWord);
+          this.reset();
+          // TODO farlo lato server
+        }, false);
     };
 
     sellingLink.onclick = function() {
-        var element1 = document.getElementById("buyingAuctions");
+        var element1 = document.getElementById("buyingPage");
         element1.className = "masked";
-        var element2 = document.getElementById("sellingAuctions");
+        var element2 = document.getElementById("sellingPage");
         element2.className = "displayed";
         var buyingLink = document.getElementById("buyingLink");
         buyingLink.className = "displayed";
@@ -68,9 +76,9 @@ window.onload = function() {
     };
 
     buyingLink.onclick = function() {
-        var element1 = document.getElementById("buyingAuctions");
+        var element1 = document.getElementById("buyingPage");
         element1.className = "displayed";
-        var element2 = document.getElementById("sellingAuctions");
+        var element2 = document.getElementById("sellingPage");
         element2.className = "masked";
         var sellingAuctions = document.getElementById("sellingLink");
         sellingAuctions.className = "displayed";
@@ -113,3 +121,29 @@ window.onload = function() {
                 auctionIdMessage.appendChild(document.createTextNode("Auction ID: " + buyingAuctions[i].textContent));
             }, false);
     }
+
+    var itemForm = document.getElementById("itemForm");
+    itemForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      var name = this.itemName.value;
+      var description = this.itemDescription.value;
+      var itemPrice = this.itemPrice.value;
+
+      var itemsBody = document.getElementById("itemsBody");
+      var node = document.createElement("tr");
+      var nameCell = document.createElement("td");
+      nameCell.className = "name";
+      nameCell.textContent = name;
+      node.appendChild(nameCell);
+      var itemPriceCell = document.createElement("td");
+      itemPriceCell.textContent = itemPrice;
+      node.appendChild(itemPriceCell);
+      var descriptionCell = document.createElement("td");
+      descriptionCell.className = "description";
+      descriptionCell.textContent = description;
+      node.appendChild(descriptionCell);
+      itemsBody.appendChild(node);
+      this.reset();
+    }
+    , false);
+
