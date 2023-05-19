@@ -83,6 +83,60 @@ for(let i = 0; i < buyingAuctions.length; i++) {
   }, false);
 }
 
+// setting the event listeners for the buying winning auctions
+var buyingBody = document.getElementById("buyingWinningAuctionsBody");
+var buyingAuctions = buyingBody.querySelectorAll(".id");
+var offsets = buyingBody.querySelectorAll(".minimumOffset");
+for(let i = 0; i < buyingAuctions.length; i++) {
+  buyingAuctions[i].addEventListener("click", function() {
+    var biddingPage = document.getElementById("biddingPage");
+    var auctionIdMessage = biddingPage.querySelector("#auctionIdMessage");
+    var minimumOffsetMessage = biddingPage.querySelector("#minimumOffsetMessage");
+
+    // remove the previous auction id message
+    if(auctionIdMessage.hasChildNodes()) {
+      auctionIdMessage.removeChild(auctionIdMessage.firstChild);
+    }
+
+    // remove the previous minimum offset message
+    if(minimumOffsetMessage.hasChildNodes()) {
+      minimumOffsetMessage.removeChild(minimumOffsetMessage.firstChild);
+    }
+    biddingPage.className = "displayed";
+    
+    // STRANO, MA FUNZIONA
+    auctionIdMessage.appendChild(document.createTextNode("Auction ID: " + buyingAuctions[i].textContent));
+    minimumOffsetMessage.appendChild(document.createTextNode("Minimum offset: " + offsets[i].textContent));
+  }, false);
+}
+
+// setting the event listeners for the buying won auctions
+var buyingBody = document.getElementById("buyingWonAuctionsBody");
+var buyingAuctions = buyingBody.querySelectorAll(".id");
+var offsets = buyingBody.querySelectorAll(".minimumOffset");
+for(let i = 0; i < buyingAuctions.length; i++) {
+  buyingAuctions[i].addEventListener("click", function() {
+    var biddingPage = document.getElementById("biddingPage");
+    var auctionIdMessage = biddingPage.querySelector("#auctionIdMessage");
+    var minimumOffsetMessage = biddingPage.querySelector("#minimumOffsetMessage");
+
+    // remove the previous auction id message
+    if(auctionIdMessage.hasChildNodes()) {
+      auctionIdMessage.removeChild(auctionIdMessage.firstChild);
+    }
+
+    // remove the previous minimum offset message
+    if(minimumOffsetMessage.hasChildNodes()) {
+      minimumOffsetMessage.removeChild(minimumOffsetMessage.firstChild);
+    }
+    biddingPage.className = "displayed";
+    
+    // STRANO, MA FUNZIONA
+    auctionIdMessage.appendChild(document.createTextNode("Auction ID: " + buyingAuctions[i].textContent));
+    minimumOffsetMessage.appendChild(document.createTextNode("Minimum offset: " + offsets[i].textContent));
+  }, false);
+}
+
 // setting the selling link onclick event listener
 sellingLink.onclick = function() {
   var element1 = document.getElementById("buyingPage");
@@ -172,32 +226,36 @@ buyingLink.onclick = function() {
     }
 
     //auction creation (evento scatenato dal submit del form)
-    function createAuction () {
+    function createAuction (e) {
+        e.preventDefault();
+
         var auctionCreationForm = document.getElementById("auctionCreationForm");
-        var dateTime = auctionCreationForm.querySelector("dateTime");
-        var minimumOffset = auctionCreationForm.querySelector("minimumOffset");
-        var itemsBody = document.getElementById("itemsBody");
+        var dateTime = this.dateTime.value;
+        dateTime = new Date(dateTime);
+        var minimumOffset = this.minimumOffset.value;
 
         //controllare che la data e l'offset siano validi
         if (minimumOffset <= 0) {
           alert("invalid offset");
           return;
         }
-        var now = new Date ();
+        var now = new Date();
+
         if (dateTime <= now) {
           alert("invalid expiry date");
           return;
         }
+
         //se non hai selezionato items con drag and drop mandare messaggio di errore
-        var selectedItemsTable = document.getElementById("selectedItemsTableBody");
-        var items = selectedItemsTable.querySelectorAll(".id");
+        var itemsBody = document.getElementById("selectedItemsTableBody");
+        var items = itemsBody.querySelectorAll(".id").textContent;
 
         if (items.length === 0 || items === null) {
             alert("you need to select at least an item to put in the auction");
             return;
         }
 
-        alert("selected items " + items.textContent);
+        alert("selected items " + items.id);
         //prendere gli items dalla lista degli items (richiedere al server gli item di quell'utente)
         //se gli items ci sono e data e offset sono corretti invocare la servlet di creazione
         //se la creazione ha avuto successo lato server creare la nuova linea

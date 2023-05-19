@@ -7,9 +7,15 @@
         <script src="home.js" defer></script>
     </head>
     <body>
-        <div id="buyingLink">Go to buying Page</div>
-        <div id="sellingLink">Go to selling Page</div>
         <div id="buyingPage">
+            <h1>Buying Page</h1>
+            <h1>Search auctions</h1>
+            <form id="searchingForm">
+                <label for="keyWord">Key Word:</label>
+                <input type="text" id="keyWord" name="keyWord"><br><br>
+                <input type="submit" value="Search">
+            </form>
+            <h2>Active Auctions</h2>
             <table id="buyingAuctions" border = "1">
                 <thead>
                     <tr>
@@ -49,13 +55,86 @@
                     </tr>
                 </tbody>
             </table>
-
-            <h1>Search auctions</h1>
-            <form id="searchingForm">
-                <label for="keyWord">Key Word:</label>
-                <input type="text" id="keyWord" name="keyWord" value ="keyWord"><br><br>
-                <input type="submit" value="Search">
-            </form>
+            <h2>Winning Auctions</h2>
+            <table id="winningAuctions" border = "1">
+                <thead>
+                    <tr>
+                        <th>
+                            Auction ID
+                        </th>
+                        <th>
+                            Minimum Offset
+                        </th>
+                        <th>
+                            Current Bid
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="buyingWinningAuctionsBody">
+                    <tr>
+                        <td class="id">
+                            0
+                        </td>   
+                        <td class = "minimumOffset">
+                            10
+                        </td>
+                        <td>
+                            100
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class = "id">
+                            1
+                        </td>
+                        <td class = "minimumOffset">
+                            20
+                        </td>
+                        <td>
+                            200
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Won Auctions</h2>
+            <table id="wonAuctions" border = "1">
+                <thead>
+                    <tr>
+                        <th>
+                            Auction ID
+                        </th>
+                        <th>
+                            Minimum Offset
+                        </th>
+                        <th>
+                            Current Bid
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="buyingWonAuctionsBody">
+                    <tr>
+                        <td class="id">
+                            0
+                        </td>   
+                        <td class = "minimumOffset">
+                            10
+                        </td>
+                        <td>
+                            100
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class = "id">
+                            1
+                        </td>
+                        <td class = "minimumOffset">
+                            20
+                        </td>
+                        <td>
+                            200
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div> 
         <div id="sellingPage">
             <h1>Selling Page</h1>
@@ -140,8 +219,8 @@
 
             <h1>Create auction</h1>
             <form id="auctionCreationForm">
-                Expiry date and time: <input type="datetime-local" id="dateTime" name="dateTime"><br><br>
-                Minimum offset: <input type="number" id="minimumOffset" name="minimumOffset"><br><br>
+                Expiry date and time: <input type="datetime-local" id="dateTime" name="dateTime" value = "dateTime"><br><br>
+                Minimum offset: <input type="number" id="minimumOffset" name="minimumOffset" value = "minimumOffset"><br><br>
                 <input type="submit" value="Create">
             </form>
 
@@ -313,5 +392,9 @@
                 </tbody>
             </table>
         </div>
+        <br>
+        <br>
+        <div id="buyingLink">Go to buying Page</div>
+        <div id="sellingLink">Go to selling Page</div>
     </body>
 </html>
