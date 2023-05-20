@@ -1,0 +1,14 @@
+.masked {
+    display: none;
+}
+.displayed {
+    display: block;
+}
+
+#buyingLink, #sellingLink {
+    color : red;
+}
+
+#anchorRow {
+    height: 25px;
+}

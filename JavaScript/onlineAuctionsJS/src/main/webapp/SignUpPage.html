@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>sign up page</title>
+<link rel="stylesheet" type="text/css" media="all" href="CSS/home.css" />
+<script src="resources/utils.js" charset="utf-8" defer></script>
+<script src="resources/signup.js" charset="utf-8" defer></script>
+</head>
+<body>
+	<h1>Welcome to the sign up page</h1>
+
+	<form id="signUpForm" method="POST" action="#">
+		Username: <input type="text" name="username" required> <br>
+		Password: <input type="password" name="password" required><br>
+		Address: <input type="text" name="address" required><br>
+		<input type="submit" value="login">
+		<p th:text=" ${errorMessage}"></p>
+	</form>
+
+</body>
+</html>
